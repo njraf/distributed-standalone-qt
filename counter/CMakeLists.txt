@@ -29,6 +29,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         controller.h controller.cpp
         countercontroller.h countercontroller.cpp
         Counter.h
+        proxycontroller.h proxycontroller.cpp
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET counter APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -49,6 +50,7 @@ else()
 endif()
 
 qt6_add_repc_sources(counter counter.rep)
+qt6_add_repc_replicas(counter counter.rep)
 
 target_link_libraries(counter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::RemoteObjects)
 target_link_libraries(counter PRIVATE Qt6::Core)

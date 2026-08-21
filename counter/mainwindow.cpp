@@ -18,8 +18,6 @@ MainWindow::MainWindow(Controller *controller, QWidget *parent)
 	connect(m_controller, &Controller::counterIncremented, counterWidget, &CounterWidget::updateCounter);
 	connect(counterWidget, &CounterWidget::increment, m_controller, &Controller::increment);
 
-
-
 	QVBoxLayout *verticalLayout = new QVBoxLayout(this);
 	verticalLayout->addWidget(counterWidget);
 	ui->centralwidget->setLayout(verticalLayout);

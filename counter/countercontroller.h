@@ -6,6 +6,7 @@
 #include <QRemoteObjectHost>
 
 class CounterController : public Controller {
+	Q_OBJECT
 public:
 	CounterController();
 

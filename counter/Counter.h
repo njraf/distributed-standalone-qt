@@ -2,6 +2,7 @@
 #define COUNTER_H
 
 #include "rep_counter_source.h"
+#include <iostream>
 
 class Counter : public CounterSimpleSource
 {
@@ -12,6 +13,7 @@ public:
 	{}
 
 	void increment() override {
+		std::cout << "Counter increment()" << std::endl;
 		setCount(count() + 1);
 	}
 };

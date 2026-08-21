@@ -1,14 +1,21 @@
 #include "countercontroller.h"
+#include <iostream>
 #include <QUrl>
 
 CounterController::CounterController() {
 	m_host.setHostUrl(QUrl("local:counter"));
 
-	m_host.enableRemoting(&m_counter);
+	if (!m_host.enableRemoting(&m_counter)) {
+		std::cerr << "Could not enable remoting" << std::endl;
+		return;
+	} else {
+		std::cout << "Enabled remoting" << std::endl;
+	}
 
 	connect(&m_counter, &Counter::countChanged, this, &CounterController::counterIncremented);
 }
 
 void CounterController::increment() {
+	std::cout << "Controller increment()" << std::endl;
 	m_counter.increment();
 }
