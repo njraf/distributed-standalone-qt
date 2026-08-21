@@ -9,8 +9,8 @@ set(CMAKE_AUTORCC ON)
 set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
-find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets)
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets)
+find_package(QT NAMES Qt6 Qt5 REQUIRED COMPONENTS Widgets RemoteObjects)
+find_package(Qt${QT_VERSION_MAJOR} REQUIRED COMPONENTS Widgets RemoteObjects)
 
 set(PROJECT_SOURCES
         main.cpp
@@ -28,6 +28,7 @@ if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)
         counterwidget.h counterwidget.cpp counterwidget.ui
         controller.h controller.cpp
         countercontroller.h countercontroller.cpp
+        Counter.h
     )
 # Define target properties for Android with Qt 6 as:
 #    set_property(TARGET counter APPEND PROPERTY QT_ANDROID_PACKAGE_SOURCE_DIR
@@ -47,8 +48,12 @@ else()
     endif()
 endif()
 
-target_link_libraries(counter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets)
+qt6_add_repc_sources(counter counter.rep)
+
+target_link_libraries(counter PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::RemoteObjects)
 target_link_libraries(counter PRIVATE Qt6::Core)
+
+target_include_directories(counter PRIVATE build/Desktop-Debug)
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

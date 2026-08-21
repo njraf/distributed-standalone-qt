@@ -2,6 +2,8 @@
 #define COUNTERCONTROLLER_H
 
 #include "controller.h"
+#include "Counter.h"
+#include <QRemoteObjectHost>
 
 class CounterController : public Controller {
 public:
@@ -10,7 +12,8 @@ public:
 	void increment() override;
 
 private:
-	int count = 0;
+	QRemoteObjectHost m_host;
+	Counter m_counter;
 };
 
 #endif // COUNTERCONTROLLER_H
