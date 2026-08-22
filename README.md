@@ -8,5 +8,11 @@ Each application will leverage MVVM architecture to make it easy to swap out com
 ## Remote objects
 The client-server part of a subproject will use Qt Remote Objects to communicate between them.
 
-## CMake components
+## CMake components (TODO)
 CMake allows projects to be broken up into components. This allows other projects to use just part of a project as a dependency, which keeps the size of the project smaller than it otherwise would be. Subprojects will expose .ui and .rep files to the `combined` project that will combine the UI and operation of all subprojects.
+
+## Dependency graph
+The processlauncher sits at the top of the dependency hierarchy. This provides two remote objects that other projects can create replicas for: AppService and ControllerService. A project with its own MainWindow, such as counter, will then use the process launcher as a dependency to obtain a replica of the ControllerService. This replica is used to tell the controller of an application to shutdown and perform various tasks. The bottom of the dependency hierarchy is the combined project. This depends on the processlauncher and any other project with a MainWindow. The subprojects are used to retrieve a replica to communicate with the controller of the application and to provide the UI for a given project. The processlauncher is used to retrieve a replica to command the processlauncher to start and stop an application.
+
+
+

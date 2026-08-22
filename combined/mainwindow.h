@@ -2,8 +2,10 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include <QRemoteObjectNode>
+#include <QString>
+#include "rep_appservice_replica.h"
 #include "proxycontroller.h"
-#include <QProcess>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -15,7 +17,7 @@ class MainWindow : public QMainWindow {
 	Q_OBJECT
 
 public:
-	MainWindow(QWidget *parent = nullptr);
+	MainWindow(QString serviceURL, QWidget *parent = nullptr);
 	~MainWindow();
 
 private:
@@ -23,9 +25,11 @@ private:
 	QMap<QString, QWidget*> externalWidgets;
 
 	counter::ProxyController *m_counter = nullptr;
-	QProcess *m_counterProcess = nullptr;
+	QRemoteObjectNode m_node;
+	AppServiceReplica *m_appService = nullptr;
 
 public slots:
 	void toggleCounterProxy();
+	void onCounterProcessStateChanged(bool start);
 };
 #endif // MAINWINDOW_H

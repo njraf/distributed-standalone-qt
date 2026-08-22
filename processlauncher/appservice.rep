@@ -1,0 +1,10 @@
+#include <QtCore>
+#include <QString>
+
+class AppService 
+{
+    SIGNAL(processStateChanged(QString name, bool start));
+    SLOT(void startApplication(QString name))
+    SLOT(void stopApplication(QString name))
+
+};

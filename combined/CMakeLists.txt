@@ -55,6 +55,7 @@ else()
 endif()
 
 qt6_add_repc_replicas(combined ../counter/counter.rep)
+qt6_add_repc_replicas(combined ../processlauncher/appservice.rep)
 
 target_link_libraries(combined PRIVATE Qt${QT_VERSION_MAJOR}::Widgets Qt${QT_VERSION_MAJOR}::RemoteObjects)
 
