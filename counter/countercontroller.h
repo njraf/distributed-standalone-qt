@@ -11,6 +11,7 @@ public:
 	CounterController();
 
 	void increment() override;
+	void initUI() override;
 
 private:
 	QRemoteObjectHost m_host;

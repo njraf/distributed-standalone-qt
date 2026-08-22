@@ -16,6 +16,7 @@ CounterController::CounterController() {
 }
 
 void CounterController::increment() {
-	std::cout << "Controller increment()" << std::endl;
 	m_counter.increment();
 }
+
+void CounterController::initUI() {}

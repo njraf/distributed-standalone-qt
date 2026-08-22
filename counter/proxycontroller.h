@@ -12,10 +12,12 @@ public:
 	ProxyController();
 
 	void increment() override;
+	void initUI() override;
 
 private:
 	QRemoteObjectNode m_node;
 	CounterReplica *m_replica;
+
 };
 
 #endif // PROXYCONTROLLER_H

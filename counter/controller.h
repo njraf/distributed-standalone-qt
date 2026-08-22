@@ -8,6 +8,8 @@ class Controller : public QObject {
 public:
 	Controller();
 
+	virtual void initUI()=0;
+
 public slots:
 	virtual void increment()=0;
 

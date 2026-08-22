@@ -21,6 +21,8 @@ MainWindow::MainWindow(Controller *controller, QWidget *parent)
 	QVBoxLayout *verticalLayout = new QVBoxLayout(this);
 	verticalLayout->addWidget(counterWidget);
 	ui->centralwidget->setLayout(verticalLayout);
+
+	m_controller->initUI();
 }
 
 MainWindow::~MainWindow() {

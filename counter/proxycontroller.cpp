@@ -19,9 +19,14 @@ ProxyController::ProxyController() {
 	}
 
 	connect(m_replica, &CounterReplica::countChanged, this, &Controller::counterIncremented);
+
+	initUI();
+}
+
+void ProxyController::initUI() {
+	emit m_replica->countChanged(m_replica->count());
 }
 
 void ProxyController::increment() {
-	std::cout << "Controller increment()" << std::endl;
 	m_replica->increment();
 }

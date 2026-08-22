@@ -13,7 +13,6 @@ public:
 	{}
 
 	void increment() override {
-		std::cout << "Counter increment()" << std::endl;
 		setCount(count() + 1);
 	}
 };
