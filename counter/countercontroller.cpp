@@ -2,6 +2,8 @@
 #include <iostream>
 #include <QUrl>
 
+namespace counter {
+
 CounterController::CounterController(QObject *parent) : Controller(parent) {
 	m_host.setHostUrl(QUrl("local:counter"));
 
@@ -20,3 +22,5 @@ void CounterController::increment() {
 }
 
 void CounterController::initUI() {}
+
+} // namespace counter

@@ -22,7 +22,7 @@ private:
 	Ui::MainWindow *ui;
 	QMap<QString, QWidget*> externalWidgets;
 
-	ProxyController *m_counter = nullptr;
+	counter::ProxyController *m_counter = nullptr;
 	QProcess *m_counterProcess = nullptr;
 
 public slots:

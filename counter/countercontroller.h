@@ -5,6 +5,8 @@
 #include "Counter.h"
 #include <QRemoteObjectHost>
 
+namespace counter {
+
 class CounterController : public Controller {
 	Q_OBJECT
 public:
@@ -18,4 +20,7 @@ private:
 	Counter m_counter;
 };
 
+} // namespace counter
+
 #endif // COUNTERCONTROLLER_H
+

@@ -1,6 +1,8 @@
 #include <iostream>
 #include "proxycontroller.h"
 
+namespace counter {
+
 ProxyController::ProxyController(QObject *parent) : Controller(parent) {
 	if (!m_node.connectToNode(QUrl("local:counter"))) {
 		std::cerr << "Could not connect to the source" << std::endl;
@@ -30,3 +32,5 @@ void ProxyController::initUI() {
 void ProxyController::increment() {
 	m_replica->increment();
 }
+
+} //  namespace counter

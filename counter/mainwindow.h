@@ -14,13 +14,13 @@ class MainWindow : public QMainWindow {
 	Q_OBJECT
 
 public:
-	explicit MainWindow(Controller *controller, QWidget *parent = nullptr);
+	explicit MainWindow(counter::Controller *controller, QWidget *parent = nullptr);
 	~MainWindow();
 
 	void initUI();
 
 private:
 	Ui::MainWindow *ui;
-	Controller *m_controller;
+	counter::Controller *m_controller;
 };
 #endif // MAINWINDOW_H

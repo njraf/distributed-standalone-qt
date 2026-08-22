@@ -1,10 +1,12 @@
-#ifndef PROXYCONTROLLER_H
-#define PROXYCONTROLLER_H
+#ifndef COUNTERPROXYCONTROLLER_H
+#define COUNTERPROXYCONTROLLER_H
 
 #include "controller.h"
 #include "rep_counter_replica.h"
 
 #include <QRemoteObjectNode>
+
+namespace counter {
 
 class ProxyController : public Controller {
 	Q_OBJECT
@@ -20,4 +22,6 @@ private:
 
 };
 
-#endif // PROXYCONTROLLER_H
+} // namespace counter
+
+#endif // COUNTERPROXYCONTROLLER_H

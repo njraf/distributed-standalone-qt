@@ -1,7 +1,9 @@
-#ifndef CONTROLLER_H
-#define CONTROLLER_H
+#ifndef ABSTRACTCOUNTERCONTROLLER_H
+#define ABSTRACTCOUNTERCONTROLLER_H
 
 #include <QObject>
+
+namespace counter {
 
 class Controller : public QObject {
 	Q_OBJECT
@@ -18,4 +20,6 @@ signals:
 	void counterIncremented(int value);
 };
 
-#endif // CONTROLLER_H
+} // namespace counter
+
+#endif // ABSTRACTCOUNTERCONTROLLER_H

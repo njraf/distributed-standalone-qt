@@ -35,9 +35,9 @@ void MainWindow::toggleCounterProxy() {
 		m_counterProcess->setArguments({"--server"});
 		connect(m_counterProcess, &QProcess::readyReadStandardOutput, this, [this](){
 			std::cout << "Starting counter" << std::endl;
-			m_counter = new ProxyController(this);
-			connect(m_counter, &ProxyController::counterIncremented, dynamic_cast<CounterWidget*>(externalWidgets.value("counter")), &CounterWidget::updateCounter);
-			connect(dynamic_cast<CounterWidget*>(externalWidgets.value("counter")), &CounterWidget::increment, m_counter, &ProxyController::increment);
+			m_counter = new counter::ProxyController(this);
+			connect(m_counter, &counter::ProxyController::counterIncremented, dynamic_cast<CounterWidget*>(externalWidgets.value("counter")), &CounterWidget::updateCounter);
+			connect(dynamic_cast<CounterWidget*>(externalWidgets.value("counter")), &CounterWidget::increment, m_counter, &counter::ProxyController::increment);
 			ui->counterPushButton->setText("Stop");
 			std::cout << "Started counter" << std::endl;
 		});

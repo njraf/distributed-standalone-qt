@@ -26,23 +26,23 @@ int main(int argc, char *argv[]) {
 	}
 
 
-	Controller *controller = nullptr;
+	counter::Controller *controller = nullptr;
 
 	if (isServer) {
-		controller = new CounterController();
+		controller = new counter::CounterController();
 
 		const auto result = a.exec();
 		delete controller;
 		return result;
 	} else if (isClient) {
-		controller = new ProxyController();
+		controller = new counter::ProxyController();
 
 		// MainWindow takes ownership of the controller and deletes it
 		MainWindow w(controller);
 		w.show();
 		return a.exec();
 	} else {
-		controller = new CounterController();
+		controller = new counter::CounterController();
 
 		// MainWindow takes ownership of the controller and deletes it
 		MainWindow w(controller);

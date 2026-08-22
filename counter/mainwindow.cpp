@@ -4,7 +4,7 @@
 
 #include <QVBoxLayout>
 
-MainWindow::MainWindow(Controller *controller, QWidget *parent)
+MainWindow::MainWindow(counter::Controller *controller, QWidget *parent)
 	: QMainWindow(parent)
 	, ui(new Ui::MainWindow)
 	, m_controller(controller)
@@ -15,8 +15,8 @@ MainWindow::MainWindow(Controller *controller, QWidget *parent)
 
 	CounterWidget *counterWidget = new CounterWidget(this);
 
-	connect(m_controller, &Controller::counterIncremented, counterWidget, &CounterWidget::updateCounter);
-	connect(counterWidget, &CounterWidget::increment, m_controller, &Controller::increment);
+	connect(m_controller, &counter::Controller::counterIncremented, counterWidget, &CounterWidget::updateCounter);
+	connect(counterWidget, &CounterWidget::increment, m_controller, &counter::Controller::increment);
 
 	QVBoxLayout *verticalLayout = new QVBoxLayout(this);
 	verticalLayout->addWidget(counterWidget);

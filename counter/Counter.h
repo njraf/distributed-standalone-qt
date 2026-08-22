@@ -4,6 +4,8 @@
 #include "rep_counter_source.h"
 #include <iostream>
 
+namespace counter {
+
 class Counter : public CounterSimpleSource
 {
 	Q_OBJECT
@@ -17,5 +19,6 @@ public:
 	}
 };
 
+} // namespace counter
 
 #endif // COUNTER_H
