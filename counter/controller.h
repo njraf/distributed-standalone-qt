@@ -6,7 +6,7 @@
 class Controller : public QObject {
 	Q_OBJECT
 public:
-	Controller();
+	Controller(QObject *parent = nullptr);
 
 	virtual void initUI()=0;
 

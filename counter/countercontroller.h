@@ -8,7 +8,7 @@
 class CounterController : public Controller {
 	Q_OBJECT
 public:
-	CounterController();
+	CounterController(QObject *parent = nullptr);
 
 	void increment() override;
 	void initUI() override;

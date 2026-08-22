@@ -2,6 +2,8 @@
 #define MAINWINDOW_H
 
 #include <QMainWindow>
+#include "proxycontroller.h"
+#include <QProcess>
 
 QT_BEGIN_NAMESPACE
 namespace Ui {
@@ -18,5 +20,12 @@ public:
 
 private:
 	Ui::MainWindow *ui;
+	QMap<QString, QWidget*> externalWidgets;
+
+	ProxyController *m_counter = nullptr;
+	QProcess *m_counterProcess = nullptr;
+
+public slots:
+	void toggleCounterProxy();
 };
 #endif // MAINWINDOW_H

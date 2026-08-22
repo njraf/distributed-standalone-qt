@@ -2,7 +2,7 @@
 #include <iostream>
 #include <QUrl>
 
-CounterController::CounterController() {
+CounterController::CounterController(QObject *parent) : Controller(parent) {
 	m_host.setHostUrl(QUrl("local:counter"));
 
 	if (!m_host.enableRemoting(&m_counter)) {

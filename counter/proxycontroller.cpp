@@ -1,7 +1,7 @@
 #include <iostream>
 #include "proxycontroller.h"
 
-ProxyController::ProxyController() {
+ProxyController::ProxyController(QObject *parent) : Controller(parent) {
 	if (!m_node.connectToNode(QUrl("local:counter"))) {
 		std::cerr << "Could not connect to the source" << std::endl;
 		return;

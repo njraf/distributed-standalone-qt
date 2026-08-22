@@ -9,7 +9,7 @@
 class ProxyController : public Controller {
 	Q_OBJECT
 public:
-	ProxyController();
+	ProxyController(QObject *parent = nullptr);
 
 	void increment() override;
 	void initUI() override;
