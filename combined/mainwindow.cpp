@@ -20,6 +20,7 @@ MainWindow::MainWindow(QString serviceURL, QWidget *parent)
 		return;
 	}
 
+	std::cout << "Acquired application service replica" << std::endl;
 
 	CounterWidget *counterWidget = new CounterWidget(this);
 	externalWidgets.insert("counter", counterWidget);

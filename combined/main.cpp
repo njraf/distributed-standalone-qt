@@ -7,13 +7,13 @@
 int main(int argc, char *argv[]) {
 	QApplication a(argc, argv);
 
-	QCommandLineOption serviceOption({"s", "service"}, " The URL that the combined project should use to communicate with the process launcher.");
+	QCommandLineOption serviceOption({"s", "service"}, " The URL that the combined project should use to communicate with the process launcher.", "url");
 	QCommandLineParser clp;
 	clp.addOption(serviceOption);
 	clp.process(a);
 
 	if (!clp.isSet(serviceOption) || clp.value(serviceOption).isEmpty()) {
-		std::cerr << "Need both -c and -s options" << std::endl;
+		std::cerr << "Need -s option" << std::endl;
 		return 1;
 	}
 

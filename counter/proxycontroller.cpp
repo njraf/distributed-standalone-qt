@@ -5,19 +5,19 @@ namespace counter {
 
 ProxyController::ProxyController(QObject *parent) : Controller(parent) {
 	if (!m_node.connectToNode(QUrl("local:counter"))) {
-		std::cerr << "Could not connect to the source" << std::endl;
+		std::cerr << "Could not connect to the counter source" << std::endl;
 		return;
 	} else {
-		std::cout << "Connected to source" << std::endl;
+		std::cout << "Connected to counter source" << std::endl;
 	}
 	m_replica = m_node.acquire<CounterReplica>();
 	m_replica->setParent(this);
 
 	if (!m_replica->waitForSource() || !m_replica->isReplicaValid()) {
-		std::cerr << "Could not connect to the source after waiting" << std::endl;
+		std::cerr << "Could not connect to the counter source after waiting" << std::endl;
 		return;
 	} else {
-		std::cout << "Acquired replica" << std::endl;
+		std::cout << "Acquired counter replica" << std::endl;
 	}
 
 	connect(m_replica, &CounterReplica::countChanged, this, &Controller::counterIncremented);
