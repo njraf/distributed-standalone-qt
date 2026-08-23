@@ -10,6 +10,8 @@
 int main(int argc, char *argv[]) {
 	QApplication a(argc, argv);
 
+	//TODO: connect to processlauncher's controllerCommunicator when given a cli option
+
 	QCommandLineOption clientOption("client", "Start the program in client mode");
 	QCommandLineOption serverOption("server", "Start the program in server mode");
 	QCommandLineParser clp;

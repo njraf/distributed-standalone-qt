@@ -7,6 +7,8 @@
 
 #include "appservice.h"
 
+//TODO: generate a controllerCommunicator.rep file
+
 QProcess *counterProcess = nullptr;
 QString communicatorURL = "";
 
